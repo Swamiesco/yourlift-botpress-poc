@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Yourlift × Botpress | Devis Test</title>
+<link rel="icon" href="website/yourlift-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="topinner">
+  <img src="/website/yourlift-logo.svg" alt="Yourlift" class="brand-logo">
+  <div><strong>Yourlift AI Lab</strong><small>Devis × Botpress · Espace de simulation</small></div>
+  <span class="tag">TEST ONLY</span>
+</div></header>
+<main>
+<section class="notice"><b>🔒 نسخة تجريبية فقط</b><p>ما كاين حتى ربط بقاعدة بيانات Yourlift، وما كيتسجّل حتى Devis حقيقي. نموذج PDF تجريبي مستوحى من تصميم Yourlift، بلا معلومات قانونية أو توقيع الشركة.</p></section>
+<section class="panel editor">
+<h1>Préparer un devis</h1><p class="muted">Remplissez les informations ou ouvrez le lien de prévisualisation envoyé par Botpress.</p>
+<div class="formgrid">
+<label>Nom du client / الزبون <input id="customer" maxlength="120" placeholder="ATLAS" value="ATLAS"></label>
+<label>Prix indiqué <select id="basis"><option value="">À préciser (HT ou TTC ?)</option><option value="HT" selected>HT — hors taxes</option><option value="TTC">TTC — toutes taxes comprises</option></select></label>
+<label>TVA (%) <input id="rate" inputmode="decimal" type="number" min="0" max="100" step=".01" value="20" placeholder="À confirmer"></label>
+</div>
+<div class="sectiontitle"><b>Pièces / articles</b><button class="secondary" id="add" type="button">＋ Ajouter</button></div>
+<div id="rows" class="rows"></div>
+<div class="actions">
+<button id="calculate" type="button">Actualiser l'aperçu</button>
+<button id="reset" class="secondary" type="button">Nouvel essai</button>
+</div>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+</section>
+
+<section class="panel result">
+<div class="sectiontitle"><h2>Prévisualisation A4</h2><span class="tag red">NON OFFICIEL</span></div>
+<div class="sheet" id="sheet">
+<div class="sheet-head">
+ <div class="company-head"><img src="/website/yourlift-logo.svg" alt="Yourlift logo"><b>YOUR LIFT SARL</b></div>
+ <div class="doc-head"><h2>DEVIS</h2><b>TEST-ONLY</b><small id="date"></small></div>
+</div>
+<div class="parties">
+ <div class="party"><small>DESTINATAIRE</small><h3 id="p-customer">ATLAS</h3><span>Client — simulation</span></div>
+ <div class="party right"><small>ÉMETTEUR</small><h3>YOUR LIFT SARL</h3><span>Informations légales : non importées</span></div>
+</div>
+<div class="table-wrap"><table id="items"><thead><tr><th>Article</th><th>Qté</th><th id="pricehead">P.U. HT</th><th>Total</th></tr></thead><tbody></tbody></table></div>
+<div class="totals">
+<div><span id="subtotal-label">Total des lignes HT</span><b id="subtotal">0.00 MAD</b></div>
+<div><span id="tax-label">TVA</span><b id="tax">—</b></div>
+<div class="grand"><span id="grand-label">Total TTC</span><b id="grand">—</b></div>
+</div>
+<p class="pending" id="pending"></p>
+<div class="sheetfoot"><b>YOUR LIFT SARL</b><div>SIMULATION · Aucun enregistrement commercial créé</div><small>Document de démonstration — non valable comme devis officiel.</small></div>
+<div class="watermark">SIMULATION</div>
+</div>
+<label class="confirm"><input type="checkbox" id="confirm"> <span>Je confirme uniquement le contenu de cet essai (aucun enregistrement réel).</span></label>
+<div class="actions"><button type="button" id="pdf" disabled>Télécharger PDF · simulation</button><button id="print" class="secondary" type="button" disabled>Imprimer / PDF (arabe)</button></div>
+<p class="muted tiny">Les détails officiels, le cachet et la signature du directeur ne sont pas importés. Pas d'envoi WhatsApp automatique.</p>
+</section>
+</main>
+<footer>YOURLIFT AI LAB · Prototype isolé · Aucune donnée enregistrée sur le serveur</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js" defer></script>
+<script src="app.js" defer></script>
+</body></html>
