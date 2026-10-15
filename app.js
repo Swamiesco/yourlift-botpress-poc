@@ -2,7 +2,7 @@
 (function(){
 const $=id=>document.getElementById(id);
 let rows=[],last=null;
-const two=n=>Number(n).toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' MAD';
+const two=n=>Number(n).toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}).replace(/[\u202f\u00a0]/g,' ')+' MAD';
 const txt=(s,max=160)=>String(s||'').trim().slice(0,max);
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const message=s=>{$('status').textContent=s||''};
